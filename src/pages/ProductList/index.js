@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import Product from '../Product'
 import { Link } from 'react-router-dom';
-
+import productsMock from '../../mock/products';
 
 const ProductList = () => {
 const [ categoriaTab, setCategoriaTab ] = useState('Hamburguer');
+const [ products, setProducts ] = useState(productsMock)
 
   return (
     <section className='my-12 max-w-screen-xl mx-auto px-3'>
@@ -17,12 +18,10 @@ const [ categoriaTab, setCategoriaTab ] = useState('Hamburguer');
       </div>
       {/* lista de produtos */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12'>
-      <Link to='/product/1'><Product /></Link>
-      <Link to='/product/2'><Product /></Link>
-      <Link to='/product/3'><Product /></Link>
-      <Link to='/product/4'><Product /></Link>
-      <Link to='/product/5'><Product /></Link>
-      <Link to='/product/6'><Product /></Link>
+        {products.map (product => (
+          <Product key={product._id} product={product}/>
+          ))}
+      
       </div>
       <div className='flex items-center justify-center space-x-6 pt-20'>
       </div>
