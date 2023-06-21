@@ -8,12 +8,14 @@ import Product from './pages/Product';
 import ProductList from './pages/ProductList';
 import Register from './pages/Register';
 import Footer from './components/Footer';
+import { AuthProvider } from './context/AuthContext';
 
 
 
 function App() {
   return (
     <>
+    <AuthProvider>
     <Navbar/>
     <Routes>
     <Route path='/' element={<Home/>}/>
@@ -27,6 +29,7 @@ function App() {
     
     </Routes>
     <Footer />
+    </AuthProvider>
     </>
   );
 }

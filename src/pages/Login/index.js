@@ -1,8 +1,35 @@
+import React from 'react';
+import { useState } from 'react';
 import authimg from '../../assets/auth.png'
-import Footer from '../../components/Footer';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Login = () => {
+
+  const [inputValues, setInputValues] = useState({
+    email: '',
+    password: ''
+  })
+
+  const navigate = useNavigate();
+
+
+  const handleChangeValues = (evento) => {
+
+    setInputValues({
+      ...inputValues,
+      [evento.target.name]: evento.target.value
+    })
+    console.log(inputValues)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Usuário ${inputValues.email} logado com sucesso!`)
+    navigate('/')
+  }
+
     return(
         <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -18,7 +45,7 @@ const Login = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit} action="#" method="POST">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Endereço de e-mail
@@ -31,7 +58,8 @@ const Login = () => {
                   autoComplete="email"
                   required
                   placeholder='Digite aqui o seu e-mail'
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
+                  onChange={handleChangeValues}
                 />
               </div>
             </div>
@@ -55,7 +83,8 @@ const Login = () => {
                   autoComplete="current-password"
                   required
                   placeholder='Digite aqui a sua senha'
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
+                  onChange={handleChangeValues}
                 />
               </div>
             </div>
