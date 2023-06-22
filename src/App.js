@@ -9,6 +9,7 @@ import ProductList from './pages/ProductList';
 import Register from './pages/Register';
 import Footer from './components/Footer';
 import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 
 
@@ -18,7 +19,11 @@ function App() {
     <AuthProvider>
     <Navbar/>
     <Routes>
-    <Route path='/' element={<Home/>}/>
+    <Route path='/' element={
+    <ProtectedRoute>
+    <Home/>
+    </ProtectedRoute>
+    }/>
     <Route path='/Login' element={<Login/>}/>
     <Route path='/Product' element={<Product/>}/>
     <Route path='/Product/:id' element={<Product/>}/>

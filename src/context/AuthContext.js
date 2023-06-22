@@ -7,18 +7,17 @@ const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
   const [ userLogged, setUserLogged ] = useState(false);
+  const [ loading, setLoading ] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const userInfo = localStorage.getItem('userInfo')
 
     if (userInfo) {
-      setUserLogged(true)
-      alert('Uuario logado')
-    }else {
-      alert('Usuario não logado')
+      setUserLogged(true);
     }
-  }, [userLogged])
+    setLoading(false)
+  }, [])
 
   const loginUser = async (inputValues) => {
 
@@ -36,8 +35,18 @@ const AuthProvider = ({ children }) => {
     setUserLogged(true);
   }
 
+  const logoutUser = () => {
+    setUserLogged(false);
+    localStorage.clear();
+    navigate('/login');
+  }
+
+  if(loading){
+    return <h>Loading</h>
+  }
+
   return (
-    <AuthContext.Provider value={{userLogged, loginUser}}>
+    <AuthContext.Provider value={{userLogged, loginUser, logoutUser}}>
       {children}
     </AuthContext.Provider>
   )
