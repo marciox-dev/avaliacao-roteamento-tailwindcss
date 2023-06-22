@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 
 const Navbar = () => {
-    const userLogged = useContext(AuthContext);
+    const { userLogged } = useContext(AuthContext);
+    const navigate = useNavigate();
     console.log(`valor do contexto`, userLogged)
 
     return (

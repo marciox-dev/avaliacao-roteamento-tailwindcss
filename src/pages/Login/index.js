@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import authimg from '../../assets/auth.png'
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 
 
@@ -11,7 +12,7 @@ const Login = () => {
     email: '',
     senha: ''
   })
-
+  const { loginUser } = useContext(AuthContext)
   const navigate = useNavigate();
 
 
@@ -26,22 +27,14 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://localhost:3000/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(inputValues)
-    })
-    console.log(response);
-    navigate('/')
+    loginUser(inputValues);
   }
 
-    return(
-        <>
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+  return (
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img
+          <img
             className="mx-auto h-auto w-1/2"
             src={authimg}
             alt="Your Company"
@@ -112,12 +105,12 @@ const Login = () => {
               Comece o período de 14 dias de teste
             </a>
           </p>
-         
+
         </div>
       </div>
-      
-        </>
-    )
+
+    </>
+  )
 }
 
 export default Login;
