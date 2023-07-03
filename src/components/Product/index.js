@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ product }) => {
-
+const navigate = useNavigate();
   const { id } = useParams();
 
   return (
@@ -14,9 +14,9 @@ const Product = ({ product }) => {
       <img className='w-64 mx-auto transform transition duration-300 hover:scale-105' src={product.imagem} alt='imagem do produto'/>
       <div className='flex flex-col items-center my-3 space-y-2 pb-7'>
     <h1 className='text-gray-900 text-lg'>{product.nome}</h1>
-    <p>{product.descricao}</p>
+    <p className='text-gray-500 text-sm text-center'>{product.descricao}</p>
     <h2 className='text-gray-900 text-2xl font-bold'>R$ {product.precoUnitario}</h2>
-    <button className='bg-primary text-white px-8 py-2 rounded-full transform transition duration-300 hover:scale-105'>Pedir agora</button>
+    <button onClick={()=> navigate(`/product/${product._id}`)} className='bg-primary text-white px-8 py-2 rounded-full transform transition duration-300 hover:scale-105'>Pedir agora</button>
       </div>
     </div>
 

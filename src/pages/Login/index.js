@@ -79,7 +79,7 @@ const Login = () => {
                 <input
                   id="senha"
                   name="senha"
-                  type="senha"
+                  type="password"
                   autoComplete="senha"
                   required
                   placeholder='Digite aqui a sua senha'

@@ -4,37 +4,75 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
-import Product from './pages/Product';
+import Product from './components/Product';
 import ProductList from './pages/ProductList';
 import Register from './pages/Register';
-import Footer from './components/Footer';
+import Admin from './pages/Admin';
+
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
+import AddProduct from './pages/AddProducts';
+import EditProduct from './pages/EditProduct';
+import ProductInfo from './pages/ProductInfo';
+import Cart from './pages/Cart';
+import Complete from './pages/Complete';
+
 
 
 
 function App() {
   return (
     <>
-    <AuthProvider>
-    <Navbar/>
-    <Routes>
-    <Route path='/' element={
-    <ProtectedRoute>
-    <Home/>
-    </ProtectedRoute>
-    }/>
-    <Route path='/Login' element={<Login/>}/>
-    <Route path='/Product' element={<Product/>}/>
-    <Route path='/Product/:id' element={<Product/>}/>
-    <Route path='/ProductList' element={<ProductList/>}/>
-    <Route path='/Register' element={<Register/>}/>
-    
-    <Route path='/*' element={<NotFound/>}/>
-    
-    </Routes>
-    <Footer />
-    </AuthProvider>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
+
+          <Route path='/product/:id' element={
+            <ProtectedRoute>
+              <ProductInfo/>
+            </ProtectedRoute>} />
+
+            <Route path='/cart' element={
+            <ProtectedRoute>
+              <Cart/>
+            </ProtectedRoute>} />
+
+            <Route path='/complete' element={
+            <ProtectedRoute>
+              <Complete />
+            </ProtectedRoute>} />
+          
+          <Route path='/login' element={<Login />} />
+          <Route path='/product' element={<Product />} />
+          
+          <Route path='/productList' element={<ProductList />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/admin' element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>} />
+
+          <Route path='/admin/add-product' element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>} />
+
+          <Route path='/admin/edit-product/:id' element={
+            <ProtectedRoute>
+              <EditProduct />
+            </ProtectedRoute>} />
+
+
+          <Route path='/*' element={<NotFound />} />
+
+        </Routes>
+
+      </AuthProvider>
     </>
   );
 }

@@ -6,15 +6,15 @@ import { BsFillCartFill } from 'react-icons/bs';
 import {MdLogout} from 'react-icons/md';
 
 const Navbar = () => {
-    const { userLogged, logoutUser } = useContext(AuthContext);
+    const { userLogged, userFull, logoutUser } = useContext(AuthContext);
     const navigate = useNavigate();
     console.log(`valor do contexto`, userLogged)
 
     return (
-        <header className='bg-transparent z-50 w-full' >
+        <header className='bg-white fixed top-0 z-50 w-full' >
             <nav className='flex items-center max-w-screen-xl mx-auto px-6 py-3'>
                 <div className='flex flex-grow items-center'>
-                    <Link to='/'><img src={logo} alt='Logo' className='w-36 cursor-pointer' /></Link>
+                    <img onClick={() => navigate('/')} src={logo} alt='Logo' className='w-36 cursor-pointer' />
                     <h1 className='text-center text-3x1 font-semibold text-gray-700'>Food App</h1>
                 </div>
 
@@ -25,7 +25,9 @@ const Navbar = () => {
                             <BsFillCartFill className='w-6 h-6 cursor-pointer '/>
                         </div>
                         <img src='' alt='' />
-                        <p className='text-gray-700'>Bem vindo, Nome Usuário!</p>
+                        <p className='text-gray-700'>Bem vindo, {userFull.nome}!</p>
+                        <Link to='/Admin'>Admin</Link>
+                        <img src={userFull.imagem } alt='imagem do usuário' className='w-10 h-10 rounded-full'/>
                         <MdLogout className='w-6 h-6 cursor-pointer' onClick={ logoutUser }/>
                     </div>
                 ) : (
