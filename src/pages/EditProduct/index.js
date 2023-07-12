@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { MultiSelect } from "react-multi-select-component";
-
 import { findAllCategories } from '../../services/categoryService';
 import { findProductById, updateProductById } from '../../services/productService';
 
@@ -24,12 +23,11 @@ const EditProduct = () => {
         getProductById();
     }, [id])
 
-const getProductById = async () => {
-   const response = await findProductById(id);
-   setProductForm(response.data);
-}
+    const getProductById = async () => {
+        const response = await findProductById(id);
+        setProductForm(response.data);
+    }
 
-    
     const getCategories = async () => {
         const response = await findAllCategories();
         const categoriesSelect = response.data.map((categoria) => {
@@ -55,7 +53,7 @@ const getProductById = async () => {
         console.log(productForm)
         const response = await updateProductById(id, productForm)
 
-        if(response){
+        if (response) {
             alert('Produto editado com sucesso');
             navigate('/admin');
         }
@@ -78,14 +76,14 @@ const getProductById = async () => {
                         className='w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus'></input>
 
                     <label htmlFor='descricao' className='text-gray-500'>Descrição</label>
-                    <textarea 
-                    name='descricao' 
-                    id='descricao' 
-                    cols='30' rows='5' 
-                    value={productForm.descricao}
-                    onChange={handleChangeValues} 
-                    required 
-                    className='w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus'></textarea>
+                    <textarea
+                        name='descricao'
+                        id='descricao'
+                        cols='30' rows='5'
+                        value={productForm.descricao}
+                        onChange={handleChangeValues}
+                        required
+                        className='w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus'></textarea>
 
                     <label htmlFor='codigoBarra' className='text-gray-500'>Código de Barras</label>
                     <input type='text'

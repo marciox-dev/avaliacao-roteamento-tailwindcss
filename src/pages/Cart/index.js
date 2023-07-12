@@ -25,12 +25,12 @@ const Cart = () => {
         setTotalValue(total);
     }, [])
 
-        const remove = (id) => {
-            const storageCart = JSON.parse(localStorage.getItem('productCart'));
-            const filterCart = storageCart.filter((product) => product._id !== id);
-            localStorage.setItem('productCart', JSON.stringify(filterCart));
-            setProductsCart(filterCart);
-        }
+    const remove = (id) => {
+        const storageCart = JSON.parse(localStorage.getItem('productCart'));
+        const filterCart = storageCart.filter((product) => product._id !== id);
+        localStorage.setItem('productCart', JSON.stringify(filterCart));
+        setProductsCart(filterCart);
+    }
 
     const findAddress = async () => {
         const response = await axios.get(`https://viacep.com.br/ws/${address.cep}/json`)
@@ -39,8 +39,6 @@ const Cart = () => {
             rua: `${response.data.logradouro}, ${response.data.bairro}, ${response.data.localidade}`
         })
     }
-
-
 
     const sendOrder = async () => {
         const productsOrder = productsCart.map((product) => {
@@ -76,9 +74,6 @@ const Cart = () => {
             [evento.target.name]: evento.target.value
         })
     }
-
-
-
 
     return (
         <main className='h-screen w-full pt-10'>

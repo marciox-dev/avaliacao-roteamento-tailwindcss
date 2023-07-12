@@ -49,13 +49,13 @@ const AddProduct = () => {
       }
     })
     const product = {
-      ...productForm, 
+      ...productForm,
       categorias: categoriesId,
       precoUnitario: parseInt(productForm.precoUnitario),
       codigoBarra: parseInt(productForm.codigoBarra)
     }
     const response = await addProductAPI(product)
-    if(response.data){
+    if (response.data) {
       alert(`Produto ${response.data.nome} cadastrado com sucesso!`)
       navigate('/admin')
     }
@@ -115,7 +115,6 @@ const AddProduct = () => {
           <div className='mt-8'>
             <button className='flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>Adicionar</button>
           </div>
-
         </div>
       </form>
     </section>

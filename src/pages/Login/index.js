@@ -4,8 +4,6 @@ import authimg from '../../assets/auth.png'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
-
-
 const Login = () => {
 
   const [inputValues, setInputValues] = useState({
@@ -14,7 +12,6 @@ const Login = () => {
   })
   const { loginUser } = useContext(AuthContext)
   const navigate = useNavigate();
-
 
   const handleChangeValues = (evento) => {
 
@@ -106,10 +103,8 @@ const Login = () => {
               Comece o período de 14 dias de teste
             </a>
           </p>
-
         </div>
       </div>
-
     </>
   )
 }

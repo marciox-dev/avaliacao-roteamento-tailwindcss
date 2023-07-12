@@ -19,7 +19,7 @@ const Admin = () => {
 
     const removeProduct = async (id) => {
         const answer = window.confirm('Você quer mesmo remover o produto?')
-        if(answer == true){
+        if (answer == true) {
             await deleteProductById(id);
             getAllProducts();
         }
@@ -61,7 +61,7 @@ const Admin = () => {
                                     {products.map(product => (
                                         <tr key={product._id} className='bg-white border-b'>
                                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
-                                                <img src={product.imagem} alt={product.nome} className='w-16'/>
+                                                <img src={product.imagem} alt={product.nome} className='w-16' />
                                             </td>
                                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
                                                 {product.nome}
@@ -75,7 +75,7 @@ const Admin = () => {
                                             <td className='px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center'>
                                                 <div className='flex items-center justify-center space-x-3'>
                                                     <Link to={`/admin/edit-product/${product._id}`}>
-                                                    <FiEdit className='cursor-pointer text-2x1 text-blue-600' />
+                                                        <FiEdit className='cursor-pointer text-2x1 text-blue-600' />
                                                     </Link>
                                                     <MdDelete onClick={() => removeProduct(product._id)} className='cursor-pointer text-2x1 text-red-600' />
                                                 </div>

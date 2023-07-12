@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import { AiOutlinePlusSquare, AiOutlineShoppingCart, AiOutlineMinusSquare } from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
 import { findProductById } from '../../services/productService';
-
 
 const ProductInfo = () => {
   const [quantity, setQuantity] = useState(1);
@@ -39,7 +37,6 @@ const ProductInfo = () => {
     navigate('/cart')
   }
   
-
   return (
     <main className='max-w-screen-xl mx-auto px-6 my-16'>
       <div className='flex flex-col justify-center items-center h-screen pt-32'>

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ product }) => {
@@ -19,7 +18,6 @@ const navigate = useNavigate();
     <button onClick={()=> navigate(`/product/${product._id}`)} className='bg-primary text-white px-8 py-2 rounded-full transform transition duration-300 hover:scale-105'>Pedir agora</button>
       </div>
     </div>
-
     </>
   )
 }

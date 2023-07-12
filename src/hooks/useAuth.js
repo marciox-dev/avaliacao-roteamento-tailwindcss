@@ -6,7 +6,6 @@ import api from '../services/api'
 const useAuth = () => {
   const [userLogged, setUserLogged] = useState(false);
   const [loading, setLoading] = useState(true);
-
   const [userFull, setUserFull] = useState({})
   const navigate = useNavigate();
 

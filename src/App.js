@@ -16,9 +16,6 @@ import ProductInfo from './pages/ProductInfo';
 import Cart from './pages/Cart';
 import Complete from './pages/Complete';
 
-
-
-
 function App() {
   return (
     <>
@@ -48,7 +45,7 @@ function App() {
 
           <Route path='/productList' element={<ProductList />} />
           <Route path='/register' element={<Register />} />
-          
+
           <Route path='/admin' element={
             <ProtectedRoute>
               <Admin />
@@ -64,11 +61,8 @@ function App() {
               <EditProduct />
             </ProtectedRoute>} />
 
-
           <Route path='/*' element={<NotFound />} />
-
         </Routes>
-
       </AuthProvider>
     </>
   );
