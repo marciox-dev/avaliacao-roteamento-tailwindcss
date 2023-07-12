@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
-import Product from './components/Product';
 import ProductList from './pages/ProductList';
 import Register from './pages/Register';
 import Admin from './pages/Admin';
@@ -29,29 +28,27 @@ function App() {
           <Route path='/' element={
             <ProtectedRoute>
               <Home />
-            </ProtectedRoute>
-          } />
+            </ProtectedRoute>} />
+          <Route path='/login' element={<Login />} />
 
           <Route path='/product/:id' element={
             <ProtectedRoute>
-              <ProductInfo/>
+              <ProductInfo />
             </ProtectedRoute>} />
 
-            <Route path='/cart' element={
+          <Route path='/cart' element={
             <ProtectedRoute>
-              <Cart/>
+              <Cart />
             </ProtectedRoute>} />
 
-            <Route path='/complete' element={
+          <Route path='/complete' element={
             <ProtectedRoute>
               <Complete />
             </ProtectedRoute>} />
-          
-          <Route path='/login' element={<Login />} />
-          <Route path='/product' element={<Product />} />
-          
+
           <Route path='/productList' element={<ProductList />} />
           <Route path='/register' element={<Register />} />
+          
           <Route path='/admin' element={
             <ProtectedRoute>
               <Admin />

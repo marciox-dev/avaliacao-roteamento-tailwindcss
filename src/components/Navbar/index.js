@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { BsFillCartFill } from 'react-icons/bs';
-import {MdLogout} from 'react-icons/md';
+import { MdLogout } from 'react-icons/md';
 
 const Navbar = () => {
     const { userLogged, userFull, logoutUser } = useContext(AuthContext);

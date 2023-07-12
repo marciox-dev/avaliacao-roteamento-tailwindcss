@@ -28,6 +28,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     loginUser(inputValues);
+    navigate('/')
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser, loginUserApi, getUserById } from "../services/authService";
+import { loginUserApi, getUserById } from "../services/authService";
 import api from '../services/api'
 
 const useAuth = () => {
