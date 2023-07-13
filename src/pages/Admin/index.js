@@ -26,7 +26,7 @@ const Admin = () => {
     }
 
     return (
-        <section className='my-12 max-x-screen-xl mx-auto px-6'>
+        <section className='pt-40 max-x-screen-xl mx-auto px-6'>
             <div className='flex justify-end space-y-2'>
                 <button onClick={() => navigate('/admin/add-product')} className='w-44 px-2 py-3 bg-primary text-white ring-red-400 focus:outline-none rounded-lg'>
                     Adiciona Produto

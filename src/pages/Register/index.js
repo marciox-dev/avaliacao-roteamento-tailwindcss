@@ -32,7 +32,7 @@ const Register = () => {
   }
 
   return (
-    <main className='h-screen w-full banner'>
+    <main className='h-screen w-full banner pt-28'>
       <div className='flex pt-20 flex-col items-center h-screen'>
         <img src={logo} alt="logotipo do food app" className='w-52' />
         <h1 className='text-2x1 text-gray-600'>Cadastro do Usuário</h1>

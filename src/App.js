@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
-import ProductList from './pages/ProductList';
+
 import Register from './pages/Register';
 import Admin from './pages/Admin';
 
@@ -26,7 +26,10 @@ function App() {
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>} />
+
           <Route path='/login' element={<Login />} />
+
+          <Route path='/register' element={<Register />} />
 
           <Route path='/product/:id' element={
             <ProtectedRoute>
@@ -42,9 +45,6 @@ function App() {
             <ProtectedRoute>
               <Complete />
             </ProtectedRoute>} />
-
-          <Route path='/productList' element={<ProductList />} />
-          <Route path='/register' element={<Register />} />
 
           <Route path='/admin' element={
             <ProtectedRoute>

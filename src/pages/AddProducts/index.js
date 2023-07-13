@@ -62,9 +62,9 @@ const AddProduct = () => {
   }
 
   return (
-    <section className='my-12 max-w-screen-xl mx-auto px-6'>
+    <section className='my-12 max-w-screen-xl mx-auto px-6 mt-30'>
       <div className='flex flex-col space-y-2'>
-        <h1 className='text-2x1 text-gray-600'>Cadastro de Produto</h1>
+        <h1 className='text-2x1 text-gray-600 mt-20'>Cadastro de Produto</h1>
       </div>
       <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-1- mt-6'>
         <div className='flex flex-col space-y-4'>
